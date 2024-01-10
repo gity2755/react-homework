@@ -1,18 +1,14 @@
-import {useSelector} from 'react-redux'
-import  List  from './components/list.js';
-import BookDetails from "./components/bookDetails"
-import EditBook from "./components/editBook"
-import React from 'react';
+import './App.css';
+import SongList from './features/song/songList.js';
+import { useSelector } from 'react-redux';
+import SongDetails from './features/song/songDetails.js';
 function App() {
-  let selected=useSelector(sta=>sta.selectedBook)
-  let selectedForEdit=useSelector(sta=>sta.selectedBookForEdit)
+  let selected=useSelector(sta=>sta.song.selectedSong)
   return (
     <div className="App">
-      <List/>
-      {selected&& <BookDetails/>}
-      {selectedForEdit&& <EditBook/>}
-    </div>
-  );
+      <SongList/>
+      {selected&& <SongDetails/>}
+    </div>)
 }
 
 export default App;
